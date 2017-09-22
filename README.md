@@ -4,3 +4,4 @@ We do challenges!
 # Requirements
 - Flask
 - requests
+- gunicorn
