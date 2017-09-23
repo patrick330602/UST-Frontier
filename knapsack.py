@@ -15,9 +15,9 @@ def KnapsackFrac(v, w, W):
         else:
             value = value + int( order[r] /10000* wi)
             W = W - wi
-    return value
+    return int(value)
 
-a = 4
-b = [1,3,5,2]
-c = [200, 240, 150, 140]
-print(KnapsackFrac(c,b,a))
+#a = 5
+#b = [1,3,5,2]
+#c = [200, 240, 150, 140]
+#print(KnapsackFrac(c,b,a))
