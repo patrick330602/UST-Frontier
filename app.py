@@ -28,5 +28,3 @@ def heist():
 	out_final = []
 	out_final["heist"]= out
 	return jsonify(out_final)
-
-app.run(debug=True)
