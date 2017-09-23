@@ -16,3 +16,12 @@ def RLE(inp):
             count += len(str(i))
     count *= 8
     return count
+
+def LZW(inp):
+    temp = inp
+    word_dict = []
+    inp_list = list(inp)        # convert string to list
+    for ch in inp_list:
+        if temp != ch:          # when letter do not match
+        return 0
+            

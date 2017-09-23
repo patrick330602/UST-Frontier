@@ -3,7 +3,7 @@ import json
 import os
 
 import countsort
-import knapsack
+import knapsack2
 import area
 import stringcom 
 
@@ -26,7 +26,7 @@ def heist():
 	for value in vault:
 		values.append(value["value"])
 		weight.append(value["weight"])
-	out = knapsack.KnapsackFrac(values, weight, maxWeight)
+	out = knapsack2.KnapsackFrac(values, weight, maxWeight)
 	content = json.dumps({'heist': int(out)})
 
 	return content
