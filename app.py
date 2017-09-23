@@ -7,6 +7,7 @@ import newsort
 import knapsack
 import area
 import stringcom 
+import schedule
 
 
 app  = Flask(__name__)
@@ -52,3 +53,9 @@ def stringcompression(endr):
 	elif endr == "LZW":
 		result = stringcom.LZW(inp)
 	return jsonify(result)
+
+@app.route('/releaseSchedule', methods=['POST'])
+def releaseSchedule():
+	data = request.get_json()
+	out = schedule.schedule(data)
+	return jsonify(out)
