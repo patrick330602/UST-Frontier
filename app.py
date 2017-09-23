@@ -49,5 +49,7 @@ def stringcompression(endr):
 	inp = data["data"]
 	result = 0
 	if endr == "RLE":
-		result = stringcom.RLE(inp);
+		result = stringcom.RLE(inp)
+	elif endr == "LZW":
+		result = stringcom.LZW(inp)
 	return jsonify(result)

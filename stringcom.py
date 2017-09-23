@@ -19,9 +19,22 @@ def RLE(inp):
 
 def LZW(inp):
     temp = inp
+    count = 0
     word_dict = []
     inp_list = list(inp)        # convert string to list
     for ch in inp_list:
-        if temp != ch:          # when letter do not match
-        return 0
-            
+        if ch not in word_dict:
+            word_dict.append(ch)
+    p = inp_list[0]
+    inp_list.pop(0)
+    for chrs in inp_list:
+        tmp = p + chrs
+        if tmp in word_dict:
+            p = p + chrs
+        else:
+            word_dict.append(p+chrs)
+            count += 1
+            p = chrs
+    count += 1
+    count *= 12
+    return count
