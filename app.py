@@ -27,9 +27,7 @@ def heist():
 		values.append(value["value"])
 		weight.append(value["weight"])
 	out = knapsack2.KnapsackFrac(values, weight, maxWeight)
-	content = json.dumps({'heist': int(out)})
-
-	return jsonify(content)
+	return jsonify({"heist": int(out)})
 
 @app.route('/calculateemptyarea', methods=['POST'])
 def calculateemptyarea():
