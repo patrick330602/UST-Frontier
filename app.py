@@ -15,7 +15,7 @@ def sort():
 	data  = quicksort.quickSort(content)
 	return jsonify(data)
 
-@app.route('/heist', methods=['POST'])
+@app.route('/heist', methods=['POST'], endpoint="heist")
 def heist():
 	content = request.get_json()
 	data  = json.loads(content)
@@ -24,7 +24,7 @@ def heist():
 	values=[]
 	weight=[]
 	for value in vault:
-		values.pop(value["value"])
-		weight.pop(value["weight"])
+		values.append(value["value"])
+		weight.append(value["weight"])
 	out = greedy.KnapsackFrac(values, weight, maxWeight)
 	return jsonify(out)
