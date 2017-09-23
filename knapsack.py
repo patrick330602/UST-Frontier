@@ -1,16 +1,20 @@
+from decimal import Decimal
+
 def KnapsackFrac(v, w, W):
-    dt = {}
-    total_value = 0
-    for i in range(len(v)):
-        rt = int(v[i]) / int(w[i])
-        dt[rt] = w[i]
-    sk = sorted(list(dt.keys()), reverse=True)
-    for j in sk:
-        wi = dt[j]
-        if wi < W:
-            total_value = total_value + int(j * wi)
-            W -= wi
+    value = 0.0
+    order = []
+    n = len(v)
+    for i in range(n):
+        order.append(Decimal(v[i]/w[i]))
+    order, v, w = (list(t) for t in zip(*sorted(zip(order, v, w))))
+    for i in n:
+        wi = w[i]
+        if wi >= W:
+            a = int(v[i] * W)
+            value += a
+            return value
         else:
-            total_value = total_value + int(j * W)
-            return total_value
-    return total_value
+            b = int(v[i] * wi)
+            value += b
+            W -= wi
+    return value
