@@ -52,6 +52,8 @@ def stringcompression(endr):
 		result = stringcom.RLE(inp)
 	elif endr == "LZW":
 		result = stringcom.LZW(inp)
+	elif endr == "WDE":
+		result = stringcom.WDE(inp)
 	return jsonify(result)
 
 @app.route('/releaseSchedule', methods=['POST'])

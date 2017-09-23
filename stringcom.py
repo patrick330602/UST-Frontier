@@ -44,12 +44,14 @@ def WDE(inp):
     wordlist = re.split('\W', inp)
     watlist = re.split('\w', inp)
     oa_word = len(wordlist)
-    oa_char = len(watlist.join(""))
+    oa_char = len("".join(watlist))
     word_dict = []
     inp_list = list(inp)        # convert string to list
     for ch in wordlist:
         if ch not in word_dict:
             word_dict.append(ch)
-    
-    
-
+    oa_dict = 0
+    for item in word_dict:
+        oa_dict += len(item)*8
+    total = (oa_char+oa_word)*12 + oa_dict
+    return total
