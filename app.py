@@ -59,3 +59,5 @@ def releaseSchedule():
 	data = request.get_json()
 	out = schedule.schedule(data)
 	return jsonify(out)
+
+app.run(Debug=True)
