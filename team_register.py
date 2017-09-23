@@ -1,6 +1,11 @@
 import requests
+
+received = ["Sorting","Jewellery Heist","Calculate Empty Area"]
 url = 'http://cis2017-coordinator.herokuapp.com/api/evaluate'
-#url = 'http://127.0.0.1:5000/heist'
-response = requests.post(url, json={"team": "UST Frontier","challenge": "Calculate Empty Area"})
-print(response.headers)
-print(response.content)
+for challenge in received:
+    print()
+    print(challenge)
+    print("---------------")
+    response = requests.post(url, json={"team": "UST Frontier","challenge": challenge})
+    print(response.headers)
+    print(response.content)
