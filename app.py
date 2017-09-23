@@ -3,7 +3,7 @@ import simplejson as sj
 import os
 
 import quicksort
-import greedy
+import knapsack
 
 
 app  = Flask(__name__)
@@ -24,7 +24,7 @@ def heist():
 	for value in vault:
 		values.append(value["value"])
 		weight.append(value["weight"])
-	out = greedy.KnapsackFrac(values, weight, maxWeight)
+	out = knapsack.KnapsackFrac(values, weight, maxWeight)
 	out_final = []
 	out_final["heist"]= out
 	return jsonify(out_final)
