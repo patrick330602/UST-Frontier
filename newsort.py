@@ -10,6 +10,6 @@ def sort(a):
 #        ret.extend([i-10000]*x)
 #    return ret
     a = np.array(a)
-    a += 10000
-    a = np.repeat(np.arange(1+a.max()),np.bincount(a))-10000
+    a += 10010
+    a = np.repeat(np.arange(1+a.max()),np.bincount(a))-10010
     return a.tolist()
