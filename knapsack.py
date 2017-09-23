@@ -23,7 +23,7 @@ def bubblesortByRatio(list1, list2):
     order = list(range(n))
     for i in range(n - 1, 0, -1): 
         for j in range(0, i):
-            if ((1.0 * list1[order[j]]) / list2[order[j]]) < ((1.0 * list1[order[j+1]]) / list2[order[j+1]]):
+            if ((1.0 * list1[order[j]])*list2[order[j+1]] < (1.0 * list1[order[j+1]])*list2[order[j]])
                 temp = order[j]
                 order[j] = order[j+1]
                 order[j+1] = temp
