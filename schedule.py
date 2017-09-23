@@ -1,15 +1,21 @@
 
 # coding: utf-8
 
-# In[88]:
+# In[117]:
 
 import datetime
+from dateutil.parser import parse
+
 def cal_time(input_string):
     a = input_string.split(";")
     try:
         length = int(a[0])
     except:
         length = -1
+    start_time  = parse(a[1])
+    end_time = parse(a[2])
+    return [length, start_time, end_time]    
+'''
     a1 = a[1].split(" ")
     a2 = a[2].split(" ")
     b1 = a1[0].split("-")
@@ -48,7 +54,7 @@ def cal_time(input_string):
     end_time = datetime.datetime(year,month,day,hour,minute,second,ms)
     start_time = start_time - datetime.timedelta(hours = difference)
     end_time = end_time - datetime.timedelta(hours = difference)
-    return [length, start_time, end_time]
+'''
 
 def findRelease(task_list, start_release, end_release):
     task_list.sort()
@@ -81,23 +87,4 @@ def schedule(string):
     start_release = (base_start_time-base_start_time).total_seconds()
     end_release = (base_end_time-base_start_time).total_seconds()
     return findRelease(task_list,start_release,end_release)
-
-
-# In[92]:
-
-a = ["3;28-05-2017 13:00:00.000+0800;28-05-2017 16:00:00.000+0800",
-     "London morning trading check;28-05-2017 05:15:00.000Z;28-05-2017 06:15:00.000Z",
-     "Tokyo risk testing;28-05-2017 16:15:00.000+0900;28-05-2017 16:45:00.000+0900",
-     "New York midnight database check;28-05-2017 03:50:00.000-0400;28-05-2017 03:59:00.000-0400"]
-schedule(a)
-
-
-# In[93]:
-
-
-
-
-# In[ ]:
-
-
 
