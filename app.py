@@ -26,5 +26,5 @@ def heist():
 		weight.append(value["weight"])
 	out = knapsack.KnapsackFrac(values, weight, maxWeight)
 	out_final = []
-	out_final["heist"]= out
+	out_final["heist"]= int(out)
 	return jsonify(out_final)
