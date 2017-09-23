@@ -35,6 +35,5 @@ def LZW(inp):
             word_dict.append(p+chrs)
             count += 1
             p = chrs
-    count += 1
     count *= 12
     return count
