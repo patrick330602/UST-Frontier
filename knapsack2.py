@@ -1,19 +1,17 @@
+import operator
 def KnapsackFrac(v, w, W):
     order=[]
     order = [v/w for v, w in zip(v,w)]
-    order.sort()
-    order.reverse()
-    n = len(order)
-    index=0
-    weight=0.0
-    value=0.0
-    while (weight < W) and (index < n):
-        if weight + w[order[index]] <= W:
-            weight = weight + w[order[index]]
-            value = value + v[order[index]]
-        else:
-            fraction = (W - weight) / w[order[index]]
-            weight = W
-            value = value + v[order[index]] * fraction
-        index=index+1
+    dict_order = zip(order, w)
+    sorted(dict_order, key=lambda x: x[0])
+        for i in dict_order:
+            wi = i[1]
+            if wi >= W:
+                a = int(i[0] * W)
+                value += a
+                return value
+            else:
+                b = int(i[0] * wi)
+                value += b
+                W -= wi
     return value
