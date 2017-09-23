@@ -6,7 +6,7 @@ def KnapsackFrac(v, w, W):
     n = len(v)
     for i in range(n):
         order.append(float(v[i] * 10000/w[i]))
-    order, v, w = (list(t) for t in zip(*sorted(zip(order, v, w))))
+    order, v, w =zip(*sorted(zip(order, v, w)))
     for i in range(n):
         wi = w[i]
         if wi >= W:
@@ -17,4 +17,4 @@ def KnapsackFrac(v, w, W):
             b = int(v[i] * wi)
             value += b
             W -= wi
-    return value
+    return int(value)
