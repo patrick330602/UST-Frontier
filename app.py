@@ -15,7 +15,7 @@ def sort():
 	return jsonify(data)
 
 @app.route('/heist/<dc>', methods=['POST'])
-def heist():
+def heist(dc):
 	data = sj.loads(dc)
 	maxWeight = data["maxWeight"]
 	vault = data["vault"]
