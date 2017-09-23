@@ -1,5 +1,5 @@
 def KnapsackFrac(v, w, W):
-    dictionary = {} #value: weight
+    dt = {}
     total_value = 0
     for i in range(len(v)):
         rt = int(v[i]) / int(w[i])
