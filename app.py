@@ -3,7 +3,7 @@ import json
 import os
 
 import countsort
-import knapsack2
+import knapsack
 import area
 import stringcom 
 
@@ -26,7 +26,7 @@ def heist():
 	for value in vault:
 		values.append(value["value"])
 		weight.append(value["weight"])
-	out = knapsack2.KnapsackFrac(values, weight, maxWeight)
+	out = knapsack.KnapsackFrac(values, weight, maxWeight)
 	return jsonify({"heist": int(out)})
 
 @app.route('/calculateemptyarea', methods=['POST'])
