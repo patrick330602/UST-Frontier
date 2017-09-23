@@ -1,24 +1,19 @@
-import decimal
 def KnapsackFrac(v, w, W):
-    value = 0.0000000000
-    order=[]
-    n = len(v)
-    for j in range(n):
-        order.append(decimal.Decimal(v[j])/decimal.Decimal(w[j]))
-    dict_order = zip(order, w)
-    sorted(dict_order, key=lambda x: x[0])
-    for i in dict_order:
-        wi = i[1]
+    dictionary = {} #value: weight
+    total_value = 0
+    for i in range(len(v)):
+        ratio = int(v[i]) / int(w[i])
+        dictionary[ratio] = w[i]
+    sorted_key = sorted(list(dictionary.keys()), reverse=True)
+    for j in sorted_key:
+        wi = dictionary[j]
         if wi >= W:
-            a = int(i[0] * W)
-            value += a
-            return value
+            total_value = total_value + int(j * W)
+            return total_value
         else:
-            b = int(i[0] * wi)
-            value += b
+            total_value = total_value + int(j * wi)
             W -= wi
-    return value
-
+    return total_value
 weight_max = 4
 values = [1,3,5,2]
 weight = [200, 240, 150, 140]

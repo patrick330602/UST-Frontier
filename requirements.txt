@@ -11,3 +11,4 @@ urllib3==1.22
 Werkzeug==0.12.2
 gunicorn==19.7.1
 simplejson==3.11.1
+six==1.11.0
