@@ -2,8 +2,9 @@ def KnapsackFrac(v, w, W):
     order=[]
     for value in v:
         order.append(v/w)
-    order.sort();
-    order.reverse();
+        n = n + 1
+    order.sort()
+    order.reverse()
     index=0
     weight=0.0
     value=0.0
