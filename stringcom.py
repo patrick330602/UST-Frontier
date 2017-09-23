@@ -42,9 +42,8 @@ def LZW(inp):
 
 def WDE(inp):
     wordlist = re.split('\W', inp)
-    watlist = re.split('\w', inp)
     oa_word = len(wordlist)
-    oa_char = len("".join(watlist))
+    
     word_dict = []
     inp_list = list(inp)        # convert string to list
     for ch in wordlist:
@@ -53,5 +52,6 @@ def WDE(inp):
     oa_dict = 0
     for item in word_dict:
         oa_dict += len(item)*8
+    oa_char = len(inp) - oa_word
     total = (oa_char+oa_word)*12 + oa_dict
     return total
