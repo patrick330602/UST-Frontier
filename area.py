@@ -7,14 +7,20 @@ def rectangle(X1,Y1,width1,height1,X2,Y2,width2,height2):
     rb = Rectangle(X2,Y2,X2+width2,Y2+height2)
     dx = min(ra.xmax, rb.xmax) - max(ra.xmin, rb.xmin)
     dy = min(ra.ymax, rb.ymax) - max(ra.ymin, rb.ymin)
-    return width1*height1-dx*dy
+    if dx > 0 and dy >0:
+        return width1*height1-dx*dy
+    else:
+        return width1*height1
     
 def square(X1,Y1,width1,height1,X2,Y2,width2):
     ra = Rectangle(X1,Y1,X1+width1,Y1+height1)
     rb = Rectangle(X2,Y2,X2+width2,Y2+width2)
     dx = min(ra.xmax, rb.xmax) - max(ra.xmin, rb.xmin)
     dy = min(ra.ymax, rb.ymax) - max(ra.ymin, rb.ymin)
-    return width1*height1-dx*dy
+    if dx > 0 and dy >0:
+        return width1*height1-dx*dy
+    else:
+        return width1*height1
     
 def circle(X1,Y1,width1,height1,X2,Y2,radius):
     cnt = 0
@@ -30,7 +36,3 @@ def circle(X1,Y1,width1,height1,X2,Y2,radius):
     ratio = cnt / N
     area = width1 * height1 * (1-ratio)
     return area
-
-
-
-
