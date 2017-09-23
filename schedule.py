@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[84]:
+# In[88]:
 
 import datetime
 def cal_time(input_string):
@@ -50,9 +50,6 @@ def cal_time(input_string):
     end_time = end_time - datetime.timedelta(hours = difference)
     return [length, start_time, end_time]
 
-
-# In[85]:
-
 def findRelease(task_list, start_release, end_release):
     task_list.sort()
     label = start_release
@@ -73,23 +70,31 @@ def findRelease(task_list, start_release, end_release):
     slot.sort()
     return str(int(slot [len(slot)-1]))
 
+def schedule(string):
+    [length,base_start_time,base_end_time]= cal_time(string[0])
+    task_list = [[]]*length
+    for i in range(length):
+        task_list[i] = [0,0]
+    for i in range(length):
+        [length,start_time,end_time] = cal_time(string[i+1])
+        task_list[i] = [(start_time-base_start_time).total_seconds(),(end_time-base_start_time).total_seconds()]
+    start_release = (base_start_time-base_start_time).total_seconds()
+    end_release = (base_end_time-base_start_time).total_seconds()
+    return findRelease(task_list,start_release,end_release)
 
-# In[86]:
 
-[length,base_start_time,base_end_time]= cal_time("3;28-05-2017 13:00:00.000+0800;28-05-2017 16:00:00.000+0800")
-string = ["London morning trading check;28-05-2017 05:15:00.000Z;28-05-2017 06:15:00.000Z",
-         "Tokyo risk testing;28-05-2017 16:15:00.000+0900;28-05-2017 16:45:00.000+0900",
-         "New York midnight database check;28-05-2017 03:50:00.000-0400;28-05-2017 03:59:00.000-0400"]
-task_list = [[]]*length
-for i in range(length):
-    task_list[i] = [0,0]
-for i in range(length):
-    [length,start_time,end_time] = cal_time(string[i])
-    task_list[i] = [(start_time-base_start_time).total_seconds(),(end_time-base_start_time).total_seconds()]
-print(task_list)
-start_release = (base_start_time-base_start_time).total_seconds()
-end_release = (base_end_time-base_start_time).total_seconds()
-findRelease(task_list,start_release,end_release)
+# In[92]:
+
+a = ["3;28-05-2017 13:00:00.000+0800;28-05-2017 16:00:00.000+0800",
+     "London morning trading check;28-05-2017 05:15:00.000Z;28-05-2017 06:15:00.000Z",
+     "Tokyo risk testing;28-05-2017 16:15:00.000+0900;28-05-2017 16:45:00.000+0900",
+     "New York midnight database check;28-05-2017 03:50:00.000-0400;28-05-2017 03:59:00.000-0400"]
+schedule(a)
+
+
+# In[93]:
+
+
 
 
 # In[ ]:
