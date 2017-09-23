@@ -14,9 +14,9 @@ def sort():
 	data  = quicksort.quickSort(content)
 	return jsonify(data)
 
-@app.route('/heist/<dc>', methods=['POST'])
-def heist(dc):
-	data = sj.loads(dc)
+@app.route('/heist', methods=['POST'])
+def heist():
+	data = request.get_json()
 	maxWeight = data["maxWeight"]
 	vault = data["vault"]
 	values=[]
