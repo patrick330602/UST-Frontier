@@ -67,4 +67,4 @@ def releaseSchedule():
 def trainPlanner():
 	data = request.get_json()
 	line, totalNumOfPassengers, reachingVia = train.train(data)
-	return jsonify({"line": line,"totalNumOfPassengers": totalNumOfPassengers,"reachingVia": reachingVia})
+	return jsonify({"line": line,"totalNumOfPassengers": int(totalNumOfPassengers),"reachingVia": reachingVia})

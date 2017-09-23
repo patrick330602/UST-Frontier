@@ -9,8 +9,8 @@ def train(data):
     for station in data['stations']:
         node[station['name']] = {'p': station['passengers'], 'cnt': station['passengers']}
         havevisit[station['name']] = False
-        for con in station.connections:
-            v = con.station
+        for con in station["connections"]:
+            v = con["station"]
             edge[station].append({'next': v, 'line': con.line})
 
     q=queue.Queue()
