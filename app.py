@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import simplejson as sj
+import json
 import os
 
 import quicksort
@@ -25,6 +25,6 @@ def heist():
 		values.append(value["value"])
 		weight.append(value["weight"])
 	out = knapsack.KnapsackFrac(values, weight, maxWeight)
-	out_final ='{"heist":'+str(int(out))+'}'
+	content = json.dumps({'heist': int(out)})
 
-	return jsonify(out_final)
+	return content
