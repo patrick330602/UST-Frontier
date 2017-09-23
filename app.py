@@ -2,11 +2,12 @@ from flask import Flask, request, jsonify, Response
 import json
 import os
 
-#import countsort
+import countsort
 import newsort
 import knapsack
 import area
 import stringcom 
+import schedule
 
 
 app  = Flask(__name__)
@@ -14,7 +15,7 @@ app  = Flask(__name__)
 @app.route('/sort', methods=['POST'])
 def sort():
 	content = request.get_json()
-	data = newsort.sort(content)
+	data = countsort.count_sort(content)
 	return Response(response=json.dumps(data), status=200, mimetype="application/json")
 
 @app.route('/heist', methods=['POST'])
@@ -52,3 +53,9 @@ def stringcompression(endr):
 	elif endr == "LZW":
 		result = stringcom.LZW(inp)
 	return jsonify(result)
+
+@app.route('/releaseSchedule', methods=['POST'])
+def releaseSchedule():
+	data = request.get_json()
+	out = schedule.schedule(data)
+	return jsonify(out)
