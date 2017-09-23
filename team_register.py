@@ -7,4 +7,4 @@ data = '''
     "members": ["Liu Chengzhong","Wang GUanzhi", "Wu Jinming"]
 }'''
 response = requests.post(url, data=data)
-print 
+print(response)
