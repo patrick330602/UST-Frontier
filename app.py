@@ -49,5 +49,5 @@ def stringcompression(endr):
 	inp = data["data"]
 	result = 0
 	if endr == "RLE":
-		result = stringcom.RLE(endr);
+		result = stringcom.RLE(inp);
 	return jsonify(result)

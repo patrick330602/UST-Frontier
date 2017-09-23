@@ -16,5 +16,3 @@ def RLE(inp):
             count += len(str(i))
     count *= 8
     return count
-
-

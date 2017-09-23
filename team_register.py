@@ -2,7 +2,7 @@ import requests
 import sys
 
 num = sys.argv[1] 
-received = ["Sorting","Jewellery Heist","Calculate Empty Area"]
+received = ["Sorting","Jewellery Heist","Calculate Empty Area","String Compression"]
 url = 'http://cis2017-coordinator.herokuapp.com/api/evaluate'
 challenge = received[int(num)]
 print()
