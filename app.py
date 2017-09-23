@@ -15,7 +15,7 @@ app  = Flask(__name__)
 @app.route('/sort', methods=['POST'])
 def sort():
 	content = request.get_json()
-	data = countsort.count_sort(content)
+	data = newsort.sort(content)
 	return Response(response=json.dumps(data), status=200, mimetype="application/json")
 
 @app.route('/heist', methods=['POST'])
