@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import os
 
-import quicksort
+import countsort
 import knapsack
 import area
 
@@ -12,7 +12,7 @@ app  = Flask(__name__)
 @app.route('/sort', methods=['POST'])
 def sort():
 	content = request.get_json()
-	data  = quicksort.quickSort(content)
+	data  = countsort.count_sort(content)
 	return jsonify(data)
 
 @app.route('/heist', methods=['POST'])

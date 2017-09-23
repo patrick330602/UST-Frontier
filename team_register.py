@@ -1,11 +1,13 @@
 import requests
+import sys
 
+num = sys.argv[1] 
 received = ["Sorting","Jewellery Heist","Calculate Empty Area"]
 url = 'http://cis2017-coordinator.herokuapp.com/api/evaluate'
-for challenge in received:
-    print()
-    print(challenge)
-    print("---------------")
-    response = requests.post(url, json={"team": "UST Frontier","challenge": challenge})
-    print(response.headers)
-    print(response.content)
+challenge = received[int(num)]
+print()
+print(challenge)
+print("---------------")
+response = requests.post(url, json={"team": "UST Frontier","challenge": challenge})
+print(response.headers)
+print(response.content)
