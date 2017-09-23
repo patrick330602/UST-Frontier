@@ -7,7 +7,7 @@ def KnapsackFrac(v, w, W):
     n = len(v)
     for i in range(n):
         order.append(float(v[i] * 10000/w[i]))
-    order, v, w =zip(*sorted(zip(order, v, w)))
+    order, v_temp, w_temp =zip(*sorted(zip(order, v, w)))
     
     while (weight < W) and (index < n):
         if weight + w[order[index]] <= W:
