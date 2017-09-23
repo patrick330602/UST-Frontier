@@ -10,9 +10,6 @@ app  = Flask(__name__)
 
 @app.route('/sort', methods=['POST'])
 def sort():
-	if request.method == 'POST':
-		content = request.get_json()
-		data  = quicksort.quickSort(content)
-				return jsonify(new)
-	else:
-		pass
+	content = request.get_json()
+	data  = quicksort.quickSort(content)
+	return jsonify(data)
