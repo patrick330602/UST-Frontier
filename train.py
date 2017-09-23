@@ -11,7 +11,7 @@ def train(data):
         havevisit[station['name']] = False
         for con in station["connections"]:
             v = con["station"]
-            edge[station].append({'next': v, 'line': con.line})
+            edge["station"].append({'next': v, 'line': con.line})
 
     q=queue.Queue()
     q.put(data['destination'])
