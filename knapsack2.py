@@ -1,5 +1,6 @@
 def KnapsackFrac(v, w, W):
     order=[]
+    n = 0
     for value in v:
         order.append(v/w)
         n = n + 1
