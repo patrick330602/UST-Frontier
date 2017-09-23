@@ -1,5 +1,4 @@
-from flask import Flask
-import requests
+from flask import Flask, request, jsonify
 import json
 import os
 
@@ -15,5 +14,6 @@ def index():
 
 @app.route('/sort', methods=['POST'])
 def sort():
-	content = quicksort.quickSort([1,2,3,4])
+	content = request.get_json()
+	
 	return content
