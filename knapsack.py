@@ -18,3 +18,8 @@ def KnapsackFrac(v, w, W):
             value += b
             W -= wi
     return int(value)
+
+a = 4
+b = [1,3,5,2]
+c = [200, 240, 150, 140]
+print(KnapsackFrac(c,b,a))
