@@ -4,6 +4,7 @@ import os
 
 import quicksort
 import knapsack
+import area
 
 
 app  = Flask(__name__)
@@ -28,3 +29,15 @@ def heist():
 	content = json.dumps({'heist': int(out)})
 
 	return content
+
+@app.route('/calculateemptyarea', methods=['POST'])
+def calculateemptyarea():
+	data = request.get_json()
+	result = 0.0
+	if 'circle' in data:
+		result = area.circle(data["container"]["coordinate"]["X"],data["container"]["coordinate"]["Y"],data["container"]["width"],data["container"]["height"],data["circle"]["center"]["X"],data["circle"]["center"]["Y"],data["circle"]["radius"])
+	elif 'square' in data:
+		result = area.square(data["container"]["coordinate"]["X"],data["container"]["coordinate"]["Y"],data["container"]["width"],data["container"]["height"],data["square"]["coordinate"]["X"],data["square"]["coordinate"]["Y"],data["square"]["width"])
+	elif 'rectangle' in data:
+		result = area.rectangle(data["container"]["coordinate"]["X"],data["container"]["coordinate"]["Y"],data["container"]["width"],data["container"]["height"],data["rectangle"]["coordinate"]["X"],data["rectangle"]["coordinate"]["Y"],data["rectangle"]["width"],data["rectangle"]["height"])
+	return result
