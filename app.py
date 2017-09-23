@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import json
+import simplejson as sj
 import os
 
 import quicksort
@@ -8,17 +8,15 @@ import greedy
 
 app  = Flask(__name__)
 
-
 @app.route('/sort', methods=['POST'])
 def sort():
 	content = request.get_json()
 	data  = quicksort.quickSort(content)
 	return jsonify(data)
 
-@app.route('/heist', methods=['POST'], endpoint="heist")
+@app.route('/heist/<dc>', methods=['POST'])
 def heist():
-	content = request.get_json()
-	data  = json.loads(content)
+	data = sj.loads(dc)
 	maxWeight = data["maxWeight"]
 	vault = data["vault"]
 	values=[]
@@ -27,4 +25,8 @@ def heist():
 		values.append(value["value"])
 		weight.append(value["weight"])
 	out = greedy.KnapsackFrac(values, weight, maxWeight)
-	return jsonify(out)
+	out_final = []
+	out_final["heist"]= out
+	return jsonify(out_final)
+
+app.run(debug=True)
