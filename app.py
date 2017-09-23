@@ -5,6 +5,7 @@ import os
 import countsort
 import knapsack
 import area
+import stringcom 
 
 
 app  = Flask(__name__)
@@ -40,4 +41,13 @@ def calculateemptyarea():
 		result = area.square(data["container"]["coordinate"]["X"],data["container"]["coordinate"]["Y"],data["container"]["width"],data["container"]["height"],data["square"]["coordinate"]["X"],data["square"]["coordinate"]["Y"],data["square"]["width"])
 	elif 'rectangle' in data:
 		result = area.rectangle(data["container"]["coordinate"]["X"],data["container"]["coordinate"]["Y"],data["container"]["width"],data["container"]["height"],data["rectangle"]["coordinate"]["X"],data["rectangle"]["coordinate"]["Y"],data["rectangle"]["width"],data["rectangle"]["height"])
+	return jsonify(result)
+
+@app.route('/stringcompression/<endr>', methods=['POST'])
+def stringcompression(endr):
+	data = request.get_json()
+	inp = data["data"]
+	result = 0
+	if endr == "RLE":
+		result = stringcom.RLE(endr);
 	return jsonify(result)
