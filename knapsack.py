@@ -11,7 +11,7 @@ def KnapsackFrac(v, w, W):
         W -= use_w
         val += v[i]/w[i]*use_w
         if W<=0: break
-    return val
+    return int(val)
 
 
 #a = 5

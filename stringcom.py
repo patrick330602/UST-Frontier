@@ -1,3 +1,5 @@
+import re
+
 def RLE(inp):
     temp = inp
     count = -1
@@ -37,3 +39,17 @@ def LZW(inp):
             p = chrs
     count *= 12
     return count
+
+def WDE(inp):
+    wordlist = re.split('\W', inp)
+    watlist = re.split('\w', inp)
+    oa_word = len(wordlist)
+    oa_char = len(watlist.join(""))
+    word_dict = []
+    inp_list = list(inp)        # convert string to list
+    for ch in wordlist:
+        if ch not in word_dict:
+            word_dict.append(ch)
+    
+    
+
