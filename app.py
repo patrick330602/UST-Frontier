@@ -8,6 +8,7 @@ import knapsack
 import area
 import stringcom 
 import schedule
+import train
 
 
 app  = Flask(__name__)
@@ -61,3 +62,9 @@ def releaseSchedule():
 	data = request.get_json()
 	out = schedule.schedule(data)
 	return jsonify(out)
+
+@app.route('/trainPlanner', methods=['POST'])
+def trainPlanner():
+	data = request.get_json()
+	line, totalNumOfPassengers, reachingVia = train.train(data)
+	return jsonify({"line": line,"totalNumOfPassengers": totalNumOfPassengers,"reachingVia": reachingVia})

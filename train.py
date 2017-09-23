@@ -1,8 +1,7 @@
 import collections
+import queue
 
-def train():
-
-    data = request.json
+def train(data):
     node={}
     edge=collections.defaultdict(list)
     edgeFarther={}
@@ -44,4 +43,4 @@ def train():
             line=e['line']
             reachingVia=e['name']
 
-    return jsonify({"line": line,"totalNumOfPassengers": totalNumOfPassengers,"reachingVia": reachingVia})
+    return line, totalNumOfPassengers, reachingVia
