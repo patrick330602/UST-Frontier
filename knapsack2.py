@@ -1,5 +1,6 @@
 import operator
 def KnapsackFrac(v, w, W):
+    value = 0
     order=[]
     order = [v/w for v, w in zip(v,w)]
     dict_order = zip(order, w)
