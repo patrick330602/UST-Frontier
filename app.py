@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 import json
 import os
 
@@ -14,8 +14,8 @@ app  = Flask(__name__)
 @app.route('/sort', methods=['POST'])
 def sort():
 	content = request.get_json()
-	data  = newsort.sort(content)
-	return jsonify(data)
+	data = newsort.sort(content)
+	return Response(response=json.dumps(data), status=200, mimetype="application/json")
 
 @app.route('/heist', methods=['POST'])
 def heist():

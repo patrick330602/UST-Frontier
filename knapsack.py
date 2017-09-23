@@ -5,7 +5,7 @@ def KnapsackFrac(v, w, W):
     order = []
     n = len(v)
     for i in range(n):
-        order.append(Decimal(v[i]/w[i]))
+        order.append(float(v[i] * 10000/w[i]))
     order, v, w = (list(t) for t in zip(*sorted(zip(order, v, w))))
     for i in n:
         wi = w[i]
