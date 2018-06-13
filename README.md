@@ -1,7 +1,10 @@
 # UST-Frontier
 We do challenges!
 
-# Requirements
+## Requirements
 - Flask
 - requests
 - gunicorn
+
+## License
+GLWTPL. Good Luck with that.
